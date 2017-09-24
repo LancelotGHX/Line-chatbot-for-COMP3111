@@ -26,7 +26,7 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 				result=rs.getString(1);
 				int fre=rs.getInt(2);
 				fre++;
-				stmt = connection.prepareStatement("UPDATE chatbotDB SET hits_of_keyword = ? WHERE response = ?");
+				stmt = connection.prepareStatement("UPDATE resH SET hits_of_keyword = ? WHERE response = ?");
 				stmt.setInt(1,fre);
 				stmt.setString(2, result);
 				stmt.executeUpdate();
