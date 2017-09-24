@@ -72,7 +72,7 @@ public class KitchenSinkTester {
 	// 		thrown = true;
 	// 	}
 	// 	assertThat(!thrown).isEqualTo(true);
-	// 	assertThat(result).isEqualTo("def\n" + "(You are the " + * + " people who say this to me.");
+	// 	assertThat(result).isEqualTo("def" + "(You are the " + * + " people who say this to me.");
 	// }
 
 	// @Test

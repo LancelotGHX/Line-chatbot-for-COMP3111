@@ -30,7 +30,7 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 				stmt.setInt(1,fre);
 				stmt.setString(2, result);
 				stmt.executeUpdate();
-				result = result + "\n" +"(You are the " + fre + " people who say this to me.)"; 
+				result = result +"(You are the " + fre + " people who say this to me.)"; 
 			}
 			
     	} catch (Exception e) {
