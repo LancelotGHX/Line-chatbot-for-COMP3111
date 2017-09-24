@@ -62,29 +62,29 @@ public class KitchenSinkTester {
 		assertThat(thrown).isEqualTo(true);
 	}
 	
-	// @Test
-	// public void testFound() throws Exception {
-	// 	boolean thrown = false;
-	// 	String result = null;
-	// 	try {
-	// 		result = this.databaseEngine.search("abc");
-	// 	} catch (Exception e) {
-	// 		thrown = true;
-	// 	}
-	// 	assertThat(!thrown).isEqualTo(true);
-	// 	assertThat(result).isEqualTo("def" + "(You are the " + * + " people who say this to me.");
-	// }
+	@Test
+	public void testFound() throws Exception {
+		boolean thrown = false;
+		String result = null;
+		try {
+			result = this.databaseEngine.search("abc");
+		} catch (Exception e) {
+			thrown = true;
+		}
+		assertThat(!thrown).isEqualTo(true);
+		assertThat(result).isEqualTo("def" + "(You are the " + 0 + " people who say this to me.");
+	}
 
-	// @Test
-	// public void testFound2() throws Exception {
-	// 	boolean thrown = false;
-	// 	String result = null;
-	// 	try {
-	// 		result = this.databaseEngine.search("I am fine");
-	// 	} catch (Exception e) {
-	// 		thrown = true;
-	// 	}
-	// 	assertThat(!thrown).isEqualTo(true);
-	// 	assertThat(result).isEqualTo("Great!\n" + "(You are the " + ? + " people who say this to me.");
-	// }
+	@Test
+	public void testFound2() throws Exception {
+		boolean thrown = false;
+		String result = null;
+		try {
+			result = this.databaseEngine.search("I am fine");
+		} catch (Exception e) {
+			thrown = true;
+		}
+		assertThat(!thrown).isEqualTo(true);
+		assertThat(result).isEqualTo("Great!\n" + "(You are the " + 0 + " people who say this to me.");
+	}
 }

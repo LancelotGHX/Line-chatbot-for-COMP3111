@@ -19,14 +19,14 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 
 		try {
 			connection=this.getConnection();
-			stmt = connection.prepareStatement("SELECT response, frequency FROM resH where keyword like concat('%', ?, '%')");
+			stmt = connection.prepareStatement("SELECT response, frequency FROM resH where ? like concat('%', keyword, '%')");
 			stmt.setString(1,text); //the input
 			rs = stmt.executeQuery();	
 			if(rs.next()){
 				result=rs.getString(1);
 				int fre=rs.getInt(2);
 				fre++;
-				stmt = connection.prepareStatement("UPDATE resH SET hits_of_keyword = ? WHERE response = ?");
+				stmt = connection.prepareStatement("UPDATE resH SET fre = ? WHERE response = ?");
 				stmt.setInt(1,fre);
 				stmt.setString(2, result);
 				stmt.executeUpdate();
@@ -47,7 +47,7 @@ public class SQLDatabaseEngine extends DatabaseEngine {
     			log.info("SQLException while closing: {}", ex.toString());
     		}
 
-			}
+		}
 
     	if (result != null)
 			return result;
