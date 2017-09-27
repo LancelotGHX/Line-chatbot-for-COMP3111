@@ -26,7 +26,7 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 				result=rs.getString(1);
 				int fre=rs.getInt(2);
 				fre++;
-				stmt = connection.prepareStatement("UPDATE resH SET fre = ? WHERE response = ?");
+				stmt = connection.prepareStatement("UPDATE resH SET frequency = ? WHERE response = ?");
 				stmt.setInt(1,fre);
 				stmt.setString(2, result);
 				stmt.executeUpdate();
@@ -34,7 +34,7 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 			}
 			
     	} catch (Exception e) {
-    		log.info("SQLException while serching: {}", e.toString());
+    		log.info("SQLException while searching: {}", e.toString());
     	}finally{
 			try{
 				if(rs.next())
