@@ -19,7 +19,7 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 
 		try {
 			connection=this.getConnection();
-			stmt = connection.prepareStatement("SELECT response, frequency FROM resH where ? like concat('%', keyword, '%')");
+			stmt = connection.prepareStatement("SELECT response, frequency FROM resH where keyword like concat('%', ? , '%')");
 			stmt.setString(1,text); //the input
 			rs = stmt.executeQuery();	
 			if(rs.next()){
