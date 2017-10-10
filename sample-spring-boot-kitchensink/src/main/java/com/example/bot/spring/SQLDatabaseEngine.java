@@ -19,18 +19,19 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 
 		try {
 			connection=this.getConnection();
-			stmt = connection.prepareStatement("SELECT response, frequency FROM resH where keyword like concat('%', ? , '%')");
+			stmt = connection.prepareStatement("SELECT weight, measure FROM nutrient_table where description like concat('%', ? , '%')");
 			stmt.setString(1,text); //the input
 			rs = stmt.executeQuery();	
 			if(rs.next()){
-				result=rs.getString(1);
-				int fre=rs.getInt(2);
-				fre++;
-				stmt = connection.prepareStatement("UPDATE resH SET frequency = ? WHERE response = ?");
-				stmt.setInt(1,fre);
-				stmt.setString(2, result);
-				stmt.executeUpdate();
-				result = result +"(You are the " + fre + " people who say this to me.)"; 
+				weight=rs.getString(1);
+				measure=rs.getString(2);
+				// int fre=rs.getInt(2);
+				// fre++;
+				// stmt = connection.prepareStatement("UPDATE resH SET frequency = ? WHERE response = ?");
+				// stmt.setInt(1,fre);
+				// stmt.setString(2, result);
+				// stmt.executeUpdate();
+				result =  "The weight is " + weight + "\n The measure is "+measure; 
 			}
 			
     	} catch (Exception e) {
